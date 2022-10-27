@@ -10,10 +10,7 @@ SHAREPOINT_PASSWORD = "ok boomer"
 if __name__ == "__main__":
     print("Hello World!")
     print(df.shape)
-    print(df.info())
-    print(df)
-    print(SHAREPOINT_PASSWORD)
-    if VALUE_TEST == "test":
-        print(VALUE_TEST, "is equal to test")
-    else:
-        print('env vars aren\'t working')
+    print(df.columns)
+    print("SHAREPOINT_PASSWORD", SHAREPOINT_PASSWORD)
+    print("VALUE_TEST", VALUE_TEST)
+
