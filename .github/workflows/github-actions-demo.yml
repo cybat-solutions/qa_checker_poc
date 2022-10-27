@@ -20,9 +20,10 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run checker
-        run: python3 main.py
         env:
           VALUE_TEST: ${{ secrets.VALUE_TEST }}
+        run: python3 main.py
+
 
 #          JIRA_MAIL: ${{ secrets.JIRA_MAIL }}
 #          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
