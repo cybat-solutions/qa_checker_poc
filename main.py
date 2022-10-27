@@ -10,4 +10,7 @@ if __name__ == "__main__":
     print(df.shape)
     print(df.info())
     print(df)
-    print(VALUE_TEST)
+    if VALUE_TEST == "test":
+        print(VALUE_TEST, "is equal to test")
+    else:
+        print('env vars aren\'t working')
