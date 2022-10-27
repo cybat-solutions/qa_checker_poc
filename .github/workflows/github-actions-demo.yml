@@ -22,9 +22,6 @@ jobs:
       - name: Run checker
         env:
           VALUE_TEST: ${{ secrets.VALUE_TEST }}
-        run: python3 main.py
-
-
 #          JIRA_MAIL: ${{ secrets.JIRA_MAIL }}
 #          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
 #
@@ -33,10 +30,4 @@ jobs:
 #          SHAREPOINT_USERNAME: ${{ secrets.SHAREPOINT_USERNAME }}
 #          SHAREPOINT_PASSWORD: ${{ secrets.SHAREPOINT_PASSWORD }}
 #
-#          SHAREPOINT_SITE_NAME: ${{ secrets.SHAREPOINT_SITE_NAME }}
-#          SHAREPOINT_SITE: ${{ secrets.SHAREPOINT_SITE }}
-#          SHAREPOINT_DOC: ${{ secrets.SHAREPOINT_DOC }}
-#          SHAREPOINT_FOLDER_NAME: ${{ secrets.SHAREPOINT_FOLDER_NAME }}
-#
-#          FILE_NAME: ${{ secrets.FILE_NAME }}
-#          LOCAL_FOLDER: ${{ secrets.LOCAL_FOLDER }}
+        run: python3 main.py
