@@ -1,8 +1,7 @@
-name: Gather QA tickets information from JIRA API
+name: Fetch QA info
 run-name: ${{ github.actor }} has started the script
 
-on:
-  workflow_dispatch:
+on: [workflow_dispatch]
 
 jobs:
   main:
@@ -19,7 +18,7 @@ jobs:
           ls ${{ github.workspace }}
 
       - name: Setup checker
-        run: pip install git+https://github.com/cybat-solutions/qa_checker_bot.git@main
+        uses: actions/checkout@v2
 
       - name: Check files again
         run: |
