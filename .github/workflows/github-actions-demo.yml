@@ -13,16 +13,11 @@ jobs:
         with:
           python-version: '3.10.2'
 
-      - name: Check files
-        run: |
-          ls ${{ github.workspace }}
+      - name: Install dependencies
+        run: pip install requirements.txt
 
       - name: Setup checker
         uses: actions/checkout@v2
-
-      - name: Check files again
-        run: |
-          ls ${{ github.workspace }}
 
       - name: Run checker
         run: python3 main.py
