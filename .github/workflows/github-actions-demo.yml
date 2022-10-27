@@ -1,31 +1,46 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Gather QA tickets information from JIRA API
+run-name: ${{ github.actor }} has started the script
 
 on:
   workflow_dispatch:
 
 jobs:
   main:
-    name: Do actions
+    name: qa_tickets_checker
     runs-on: ubuntu-latest
     steps:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.10.2'
 
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-
-      - name: Check out repository code
-        uses: actions/checkout@v3
-
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-
-      - name: List files in the repository
+      - name: Check files
         run: |
           ls ${{ github.workspace }}
 
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Setup checker
+        run: pip install git+https://github.com/cybat-solutions/qa_checker_bot.git@main
+
+      - name: Check files again
+        run: |
+          ls ${{ github.workspace }}
+
+      - name: Run checker
+        run: python3 -m qa_checker_bot --github main
+
+#        env:
+#          JIRA_MAIL: ${{ secrets.JIRA_MAIL }}
+#          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+#
+#          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+#
+#          SHAREPOINT_USERNAME: ${{ secrets.SHAREPOINT_USERNAME }}
+#          SHAREPOINT_PASSWORD: ${{ secrets.SHAREPOINT_PASSWORD }}
+#
+#          SHAREPOINT_SITE_NAME: ${{ secrets.SHAREPOINT_SITE_NAME }}
+#          SHAREPOINT_SITE: ${{ secrets.SHAREPOINT_SITE }}
+#          SHAREPOINT_DOC: ${{ secrets.SHAREPOINT_DOC }}
+#          SHAREPOINT_FOLDER_NAME: ${{ secrets.SHAREPOINT_FOLDER_NAME }}
+#
+#          FILE_NAME: ${{ secrets.FILE_NAME }}
+#          LOCAL_FOLDER: ${{ secrets.LOCAL_FOLDER }}
