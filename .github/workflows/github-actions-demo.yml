@@ -21,8 +21,9 @@ jobs:
 
       - name: Run checker
         run: python3 main.py
+        env:
+          VALUE_TEST: ${{ secrets.VALUE_TEST }}
 
-#        env:
 #          JIRA_MAIL: ${{ secrets.JIRA_MAIL }}
 #          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
 #
