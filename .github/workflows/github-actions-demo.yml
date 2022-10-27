@@ -13,11 +13,11 @@ jobs:
         with:
           python-version: '3.10.2'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
       - name: Setup checker
         uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Run checker
         run: python3 main.py
