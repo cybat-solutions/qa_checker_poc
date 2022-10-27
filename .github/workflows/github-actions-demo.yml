@@ -25,7 +25,7 @@ jobs:
           ls ${{ github.workspace }}
 
       - name: Run checker
-        run: python3 -m qa_checker_bot --github main
+        run: python3 main.py
 
 #        env:
 #          JIRA_MAIL: ${{ secrets.JIRA_MAIL }}
