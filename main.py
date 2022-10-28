@@ -30,22 +30,15 @@ class CustomFormatter(logging.Formatter):
         elif record.levelno in (logging.ERROR, logging.CRITICAL):
             outputtype = "error"
 
-            if record.exc_info:
-                # print the traceback and the exception name and details
-                logger.exception(record.msg)
-
         return (
-                f"::{outputtype}" + ('' if head is None else f" title={head}")
-                + "::" + (body or record.msg)
+                f"::{outputtype}" + ('' if head is None else f" title={head}") + "::" + record.msg
         )
 
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-handler = logging.StreamHandler()
-handler.setFormatter(CustomFormatter())
-logger.addHandler(handler)
+
 
 if __name__ == "__main__":
     print("Hello World!")
@@ -56,6 +49,8 @@ if __name__ == "__main__":
 
     while counter != 5:
         print(counter)
-        logger.info(f"counter: {counter}")
+        logger.info(f"info, counter: {counter}")
+        logger.warning(f"warning, counter: {counter}")
+        logger.error(f"error, counter: {counter}")
         sleep(1)
         counter += 1
