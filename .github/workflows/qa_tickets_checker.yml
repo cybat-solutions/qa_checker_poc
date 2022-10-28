@@ -22,12 +22,5 @@ jobs:
       - name: Run checker
         env:
           VALUE_TEST: ${{ secrets.VALUE_TEST }}
-#          JIRA_MAIL: ${{ secrets.JIRA_MAIL }}
-#          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
-#
-#          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-#
-#          SHAREPOINT_USERNAME: ${{ secrets.SHAREPOINT_USERNAME }}
-#          SHAREPOINT_PASSWORD: ${{ secrets.SHAREPOINT_PASSWORD }}
-#
+
         run: python3 main.py
