@@ -21,9 +21,12 @@ logger.addHandler(handler)
 
 workflow_summary_filename = os.environ.get("GITHUB_STEP_SUMMARY", None)
 
-workflow_summary_text = f"""<details><summary><b>{SHAREPOINT_PASSWORD.upper()}</b></summary>\n\n
-| Page | Modification | Diff | Time |\n
-| --- | --- | --- | --- |</details>"""
+workflow_summary_text = f"""<summary><b>{SHAREPOINT_PASSWORD.upper()}</b></summary>\n\n
+| Left columns  | Right columns |\n
+| ------------- |:-------------:|\n
+| left foo      | right foo     |\n
+| left bar      | right bar     |\n
+| left baz      | right baz     |"""
 
 if __name__ == "__main__":
     print("Hello World!")
