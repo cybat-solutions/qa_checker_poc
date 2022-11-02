@@ -19,7 +19,11 @@ handler = logging.StreamHandler()
 handler.setFormatter(logging.Formatter())
 logger.addHandler(handler)
 
-os.environ['GITHUB_STEP_SUMMARY'] = "this is a test"
+workflow_summary_filename = os.environ.get("GITHUB_STEP_SUMMARY", None)
+
+workflow_summary_text = f"""<details><summary><b>{SHAREPOINT_PASSWORD.upper()}</b></summary>\n\n
+| Page | Modification | Diff | Time |\n
+| --- | --- | --- | --- |</details>"""
 
 if __name__ == "__main__":
     print("Hello World!")
@@ -35,3 +39,7 @@ if __name__ == "__main__":
         logger.error(f"error, counter: {counter}")
         sleep(1)
         counter += 1
+
+    if workflow_summary_filename is not None:
+        with open(workflow_summary_filename, 'a') as f:
+            f.write(Bot.script_output)
