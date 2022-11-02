@@ -19,6 +19,8 @@ handler = logging.StreamHandler()
 handler.setFormatter(logging.Formatter())
 logger.addHandler(handler)
 
+os.environ['GITHUB_STEP_SUMMARY'] = "this is a test"
+
 if __name__ == "__main__":
     print("Hello World!")
     print(df.shape)
