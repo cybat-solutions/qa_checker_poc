@@ -42,4 +42,4 @@ if __name__ == "__main__":
 
     if workflow_summary_filename is not None:
         with open(workflow_summary_filename, 'a') as f:
-            f.write(Bot.script_output)
+            f.write(workflow_summary_text)
