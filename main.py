@@ -22,9 +22,7 @@ logger.addHandler(handler)
 workflow_summary_filename = os.environ.get("GITHUB_STEP_SUMMARY", None)
 
 workflow_summary_text = f"""<summary><b>{SHAREPOINT_PASSWORD.upper()}</b></summary>\n
-| Left columns  | Right columns |
-| ------------- |:-------------:|
-| left foo      | right foo     |
+| Left columns  | Right columns |\n| ------------- |:-------------:|\n| left foo      | right foo     |
 | left bar      | right bar     |
 | left baz      | right baz     |"""
 
