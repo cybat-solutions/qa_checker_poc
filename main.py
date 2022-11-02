@@ -12,33 +12,12 @@ SHAREPOINT_PASSWORD = "ok boomer"
 
 counter = 0
 
-class CustomFormatter(logging.Formatter):
-    def format(self, record: logging.LogRecord):
-        head = getattr(record, "head", None)
-        body = getattr(record, "body", None)
-        if not head and not body:
-            return super().format(record)
-
-        outputtype = "notice"
-
-        if record.levelno == logging.DEBUG:
-            outputtype = "debug"
-
-        elif record.levelno == logging.WARNING:
-            outputtype = "warning"
-
-        elif record.levelno in (logging.ERROR, logging.CRITICAL):
-            outputtype = "error"
-
-        return (
-                f"::{outputtype}" + ('' if head is None else f" title={head}") + "::" + record.msg
-        )
-
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-
+handler = logging.StreamHandler()
+handler.setFormatter(logging.Formatter())
+logger.addHandler(handler)
 
 if __name__ == "__main__":
     print("Hello World!")
