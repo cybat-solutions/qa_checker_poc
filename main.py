@@ -22,9 +22,9 @@ logger.addHandler(handler)
 workflow_summary_filename = os.environ.get("GITHUB_STEP_SUMMARY", None)
 
 workflow_summary_text = f"""<summary><b>{SHAREPOINT_PASSWORD.upper()}</b></summary>\n
-| Left columns  | Right columns |\n| ------------- |:-------------:|\n| left foo      | right foo     |
-| left bar      | right bar     |
-| left baz      | right baz     |"""
+| NUM | LETTER |
+| --- |:------:|
+"""
 
 if __name__ == "__main__":
     print("Hello World!")
@@ -33,13 +33,14 @@ if __name__ == "__main__":
     print("SHAREPOINT_PASSWORD", SHAREPOINT_PASSWORD)
     print("VALUE_TEST", VALUE_TEST)
 
-    while counter != 5:
-        print(counter)
-        logger.info(f"info, counter: {counter}")
-        logger.warning(f"warning, counter: {counter}")
-        logger.error(f"error, counter: {counter}")
+    for num, letter in enumerate("abcde"):
+        print(letter)
+        workflow_summary_text += f"| {num} | {letter} |\n"
+
+        logger.info(f"info, letter: {letter}")
+        logger.warning(f"warning, letter: {letter}")
+        logger.error(f"error, letter: {letter}")
         sleep(1)
-        counter += 1
 
     if workflow_summary_filename is not None:
         with open(workflow_summary_filename, 'a') as f:
