@@ -1,5 +1,5 @@
 name: Fetch QA info
-run-name: ${{ github.actor }} has started the script
+run-name: ${{ github.name }} has started the script
 
 on: [workflow_dispatch]
 
