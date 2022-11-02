@@ -24,6 +24,3 @@ jobs:
           VALUE_TEST: ${{ secrets.VALUE_TEST }}
 
         run: python3 main.py
-
-      - name: Adding markdown
-        run: echo '### Hello world! :rocket:' >> $GITHUB_STEP_SUMMARY
