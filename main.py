@@ -19,7 +19,7 @@ handler = logging.StreamHandler()
 handler.setFormatter(logging.Formatter())
 logger.addHandler(handler)
 
-workflow_summary_filename = os.environ.get("GITHUB_STEP_SUMMARY", None)
+workflow_summary_filename = os.environ.get("GITHUB_STEP_SUMMARY", "workflow_summary.txt")
 
 workflow_summary_text = f"""<summary><b>{SHAREPOINT_PASSWORD.upper()}</b></summary>\n
 | NUM | LETTER |
