@@ -26,4 +26,4 @@ jobs:
 #        env:
 #          VALUE_TEST: ${{ secrets.VALUE_TEST }}
 
-        run: python3 main.py
+        run: python3 src/main.py
