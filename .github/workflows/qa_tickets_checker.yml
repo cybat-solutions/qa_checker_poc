@@ -1,5 +1,5 @@
 name: Fetch QA info
-run-name: test has started the script
+run-name: Started by ${{ github.event_type }}
 
 on:
   repository_dispatch:
