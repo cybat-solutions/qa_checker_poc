@@ -1,5 +1,5 @@
 name: Fetch QA info
-#run-name: ${{ github.name }} has started the script
+run-name: test has started the script
 
 on:
   repository_dispatch:
