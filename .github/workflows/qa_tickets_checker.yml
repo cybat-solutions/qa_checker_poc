@@ -3,6 +3,7 @@ name: Fetch QA info
 
 on:
   repository_dispatch:
+    types: test
 
 jobs:
   main:
