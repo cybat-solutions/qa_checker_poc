@@ -1,7 +1,8 @@
 name: Fetch QA info
 run-name: ${{ github.name }} has started the script
 
-on: [workflow_dispatch]
+on:
+  repository_dispatch:
 
 jobs:
   main:
