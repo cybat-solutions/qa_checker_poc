@@ -1,5 +1,5 @@
 name: Fetch QA info
-run-name: ${{ github.name }} has started the script
+#run-name: ${{ github.name }} has started the script
 
 on:
   repository_dispatch:
@@ -17,11 +17,11 @@ jobs:
       - name: Setup checker
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+#      - name: Install dependencies
+#        run: pip install -r requirements.txt
 
       - name: Run checker
-        env:
-          VALUE_TEST: ${{ secrets.VALUE_TEST }}
+#        env:
+#          VALUE_TEST: ${{ secrets.VALUE_TEST }}
 
         run: python3 main.py
