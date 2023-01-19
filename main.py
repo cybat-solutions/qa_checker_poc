@@ -18,16 +18,12 @@ import logging
 # handler = logging.StreamHandler()
 # handler.setFormatter(logging.Formatter())
 # logger.addHandler(handler)
-#
-# workflow_summary_filename = os.environ.get("GITHUB_STEP_SUMMARY", "workflow_summary.txt")
-#
-# workflow_summary_text = f"""<summary><b>{SHAREPOINT_PASSWORD.upper()}</b></summary>\n
-# | NUM | LETTER |
-# | --- |:------:|
-# """
+
+workflow_summary_filename = os.environ.get("GITHUB_STEP_SUMMARY", "workflow_summary.txt")
+
+workflow_summary_text = "Hello World!."
 
 if __name__ == "__main__":
-    print("Hello World!. This is a test.")
     # print(df.shape)
     # print(df.columns)
     # print("SHAREPOINT_PASSWORD", SHAREPOINT_PASSWORD)
@@ -42,6 +38,6 @@ if __name__ == "__main__":
     #     logger.error(f"error, letter: {letter}")
     #     sleep(1)
     #
-    # if workflow_summary_filename is not None:
-    #     with open(workflow_summary_filename, 'a') as f:
-    #         f.write(workflow_summary_text)
+    if workflow_summary_filename is not None:
+        with open(workflow_summary_filename, 'a') as f:
+            f.write(workflow_summary_text)
